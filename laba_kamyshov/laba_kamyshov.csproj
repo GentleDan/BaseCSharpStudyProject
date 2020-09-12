@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3E297EC3-0A88-4356-92DC-E6CE5167E557}</ProjectGuid>
+    <ProjectGuid>{97A430BC-F153-4E2F-82E9-F932E896B4FC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Laba_1</RootNamespace>
-    <AssemblyName>Laba_1</AssemblyName>
+    <RootNamespace>WindowsFormsApp3</RootNamespace>
+    <AssemblyName>WindowsFormsApp3</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,14 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Direction.cs" />
+    <Compile Include="Excavator.cs" />
+    <Compile Include="ExcavatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ExcavatorForm.Designer.cs">
+      <DependentUpon>ExcavatorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ExcavatorForm.resx">
+      <DependentUpon>ExcavatorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,6 +67,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -75,6 +81,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-arrow-button-icon-right-arrow-transparent-background-5a77bc2a39d211.9125852015177963942368.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-arrow-button-icon-right-arrow-transparent-background-5a77bc2a39d211.91258520151779639423681.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-arrow-button-icon-right-arrow-transparent-background-5a77bc2a39d211.91258520151779639423682.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-arrow-computer-icons-clip-art-down-arrow-5abd34be17bde0.6793649715223492460973.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-up-arrow-computer-icons-5adc7a6d2efa86.0795934715243987011924.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

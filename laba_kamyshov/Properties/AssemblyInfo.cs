@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
-[assembly: AssemblyTitle("Laba_1")]
+[assembly: AssemblyTitle("WindowsFormsApp3")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Laba_1")]
+[assembly: AssemblyProduct("WindowsFormsApp3")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("3e297ec3-0a88-4356-92dc-e6ce5167e557")]
+[assembly: Guid("97a430bc-f153-4e2f-82e9-f932e896b4fc")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //
