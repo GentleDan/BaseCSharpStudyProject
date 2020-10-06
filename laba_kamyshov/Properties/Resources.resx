@@ -121,8 +121,14 @@
   <data name="kisspng-up-arrow-computer-icons-5adc7a6d2efa86.0795934715243987011924" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kisspng-up-arrow-computer-icons-5adc7a6d2efa86.0795934715243987011924.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="kisspng-arrow-button-icon-right-arrow-transparent-background-5a77bc2a39d2112" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kisspng-arrow-button-icon-right-arrow-transparent-background-5a77bc2a39d211.91258520151779639423682.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="kisspng-arrow-button-icon-right-arrow-transparent-background-5a77bc2a39d211.9125852015177963942368" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kisspng-arrow-button-icon-right-arrow-transparent-background-5a77bc2a39d211.9125852015177963942368.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,22 +136,28 @@
   <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="kisspng-arrow-computer-icons-clip-art-down-arrow-5abd34be17bde0.6793649715223492460973" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kisspng-arrow-computer-icons-clip-art-down-arrow-5abd34be17bde0.6793649715223492460973.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="kisspng-arrow-button-icon-right-arrow-transparent-background-5a77bc2a39d2111" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kisspng-arrow-button-icon-right-arrow-transparent-background-5a77bc2a39d211.91258520151779639423681.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="down" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="kisspng-arrow-computer-icons-clip-art-down-arrow-5abd34be17bde0.6793649715223492460973" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kisspng-arrow-computer-icons-clip-art-down-arrow-5abd34be17bde0.6793649715223492460973.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kisspng-arrow-button-icon-right-arrow-transparent-background-5a77bc2a39d2111" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kisspng-arrow-button-icon-right-arrow-transparent-background-5a77bc2a39d211.91258520151779639423681.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Up1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Down1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Left1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Right1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Direction.cs" />
     <Compile Include="Excavator.cs" />
     <Compile Include="ExcavatorForm.cs">
       <SubType>Form</SubType>
@@ -54,6 +53,10 @@
     <Compile Include="ExcavatorForm.Designer.cs">
       <DependentUpon>ExcavatorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TrackedVehicle.cs" />
+    <Compile Include="Vehicle.cs" />
+    <Compile Include="Direction.cs" />
+    <Compile Include="ITransport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ExcavatorForm.resx">
@@ -61,14 +64,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,6 +108,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Up1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Down1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Right1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
