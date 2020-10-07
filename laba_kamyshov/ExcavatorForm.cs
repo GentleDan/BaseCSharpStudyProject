@@ -35,12 +35,11 @@ namespace laba_kamyshov
             Draw();
         }
 
-        private void button_Move_Click(object sender, EventArgs e)
+        private void Button_Move_Click(object sender, EventArgs e)
         {
             if (ex != null)
             {
                 string name = (sender as Button).Name;
-                Console.WriteLine(name);
                 switch (name)
                 {
                     case "button_Up":

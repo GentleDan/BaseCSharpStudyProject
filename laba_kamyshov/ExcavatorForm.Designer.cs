@@ -58,7 +58,7 @@
             this.button_Up.Size = new System.Drawing.Size(30, 30);
             this.button_Up.TabIndex = 1;
             this.button_Up.UseVisualStyleBackColor = true;
-            this.button_Up.Click += new System.EventHandler(this.button_Move_Click);
+            this.button_Up.Click += new System.EventHandler(this.Button_Move_Click);
             // 
             // button_Left
             // 
@@ -70,7 +70,7 @@
             this.button_Left.TabIndex = 2;
             this.button_Left.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.button_Left.UseVisualStyleBackColor = true;
-            this.button_Left.Click += new System.EventHandler(this.button_Move_Click);
+            this.button_Left.Click += new System.EventHandler(this.Button_Move_Click);
             // 
             // button_Down
             // 
@@ -81,7 +81,7 @@
             this.button_Down.Size = new System.Drawing.Size(30, 30);
             this.button_Down.TabIndex = 3;
             this.button_Down.UseVisualStyleBackColor = true;
-            this.button_Down.Click += new System.EventHandler(this.button_Move_Click);
+            this.button_Down.Click += new System.EventHandler(this.Button_Move_Click);
             // 
             // button_Right
             // 
@@ -92,7 +92,7 @@
             this.button_Right.Size = new System.Drawing.Size(30, 30);
             this.button_Right.TabIndex = 4;
             this.button_Right.UseVisualStyleBackColor = true;
-            this.button_Right.Click += new System.EventHandler(this.button_Move_Click);
+            this.button_Right.Click += new System.EventHandler(this.Button_Move_Click);
             // 
             // CreateTrackedVehicle_button
             // 
