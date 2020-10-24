@@ -2,7 +2,7 @@
 
 namespace laba_kamyshov
 {
-    internal class TrackedVehicle : Vehicle
+    public class TrackedVehicle : Vehicle
     {
         protected readonly int Tracked_Vehicle_Width = 100;
         protected readonly int Tracked_Vehicle_Height = 100;

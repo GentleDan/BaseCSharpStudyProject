@@ -33,8 +33,13 @@
             this.parkExcavator = new System.Windows.Forms.Button();
             this.placeGroupBox = new System.Windows.Forms.GroupBox();
             this.takeExcavator = new System.Windows.Forms.Button();
-            this.placeCount = new System.Windows.Forms.MaskedTextBox();
+            this.MaskedBoxPlace = new System.Windows.Forms.MaskedTextBox();
             this.place = new System.Windows.Forms.Label();
+            this.listBoxCamp = new System.Windows.Forms.ListBox();
+            this.textBoxNewCamp = new System.Windows.Forms.TextBox();
+            this.labelCamps = new System.Windows.Forms.Label();
+            this.Button_Add_Camp = new System.Windows.Forms.Button();
+            this.Button_Del_Camp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCampBox)).BeginInit();
             this.placeGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +56,7 @@
             // 
             // parkTracked
             // 
-            this.parkTracked.Location = new System.Drawing.Point(896, 12);
+            this.parkTracked.Location = new System.Drawing.Point(896, 257);
             this.parkTracked.Name = "parkTracked";
             this.parkTracked.Size = new System.Drawing.Size(135, 49);
             this.parkTracked.TabIndex = 1;
@@ -61,7 +66,7 @@
             // 
             // parkExcavator
             // 
-            this.parkExcavator.Location = new System.Drawing.Point(896, 67);
+            this.parkExcavator.Location = new System.Drawing.Point(896, 312);
             this.parkExcavator.Name = "parkExcavator";
             this.parkExcavator.Size = new System.Drawing.Size(135, 63);
             this.parkExcavator.TabIndex = 2;
@@ -72,9 +77,9 @@
             // placeGroupBox
             // 
             this.placeGroupBox.Controls.Add(this.takeExcavator);
-            this.placeGroupBox.Controls.Add(this.placeCount);
+            this.placeGroupBox.Controls.Add(this.MaskedBoxPlace);
             this.placeGroupBox.Controls.Add(this.place);
-            this.placeGroupBox.Location = new System.Drawing.Point(896, 154);
+            this.placeGroupBox.Location = new System.Drawing.Point(896, 381);
             this.placeGroupBox.Name = "placeGroupBox";
             this.placeGroupBox.Size = new System.Drawing.Size(135, 100);
             this.placeGroupBox.TabIndex = 3;
@@ -91,14 +96,14 @@
             this.takeExcavator.UseVisualStyleBackColor = true;
             this.takeExcavator.Click += new System.EventHandler(this.takeExcavator_Click);
             // 
-            // placeCount
+            // MaskedBoxPlace
             // 
-            this.placeCount.Location = new System.Drawing.Point(75, 39);
-            this.placeCount.Mask = "00";
-            this.placeCount.Name = "placeCount";
-            this.placeCount.Size = new System.Drawing.Size(25, 20);
-            this.placeCount.TabIndex = 1;
-            this.placeCount.ValidatingType = typeof(int);
+            this.MaskedBoxPlace.Location = new System.Drawing.Point(75, 39);
+            this.MaskedBoxPlace.Mask = "00";
+            this.MaskedBoxPlace.Name = "MaskedBoxPlace";
+            this.MaskedBoxPlace.Size = new System.Drawing.Size(25, 20);
+            this.MaskedBoxPlace.TabIndex = 1;
+            this.MaskedBoxPlace.ValidatingType = typeof(int);
             // 
             // place
             // 
@@ -109,11 +114,61 @@
             this.place.TabIndex = 0;
             this.place.Text = "Место:";
             // 
+            // listBoxCamp
+            // 
+            this.listBoxCamp.FormattingEnabled = true;
+            this.listBoxCamp.Location = new System.Drawing.Point(896, 91);
+            this.listBoxCamp.Name = "listBoxCamp";
+            this.listBoxCamp.Size = new System.Drawing.Size(132, 95);
+            this.listBoxCamp.TabIndex = 4;
+            this.listBoxCamp.SelectedIndexChanged += new System.EventHandler(this.listBoxCamp_SelectedIndexChanged);
+            // 
+            // textBoxNewCamp
+            // 
+            this.textBoxNewCamp.Location = new System.Drawing.Point(896, 36);
+            this.textBoxNewCamp.Name = "textBoxNewCamp";
+            this.textBoxNewCamp.Size = new System.Drawing.Size(132, 20);
+            this.textBoxNewCamp.TabIndex = 5;
+            // 
+            // labelCamps
+            // 
+            this.labelCamps.AutoSize = true;
+            this.labelCamps.Location = new System.Drawing.Point(938, 9);
+            this.labelCamps.Name = "labelCamps";
+            this.labelCamps.Size = new System.Drawing.Size(49, 13);
+            this.labelCamps.TabIndex = 6;
+            this.labelCamps.Text = "Стоянки";
+            // 
+            // Button_Add_Camp
+            // 
+            this.Button_Add_Camp.Location = new System.Drawing.Point(896, 62);
+            this.Button_Add_Camp.Name = "Button_Add_Camp";
+            this.Button_Add_Camp.Size = new System.Drawing.Size(132, 23);
+            this.Button_Add_Camp.TabIndex = 7;
+            this.Button_Add_Camp.Text = "Добавить стоянку";
+            this.Button_Add_Camp.UseVisualStyleBackColor = true;
+            this.Button_Add_Camp.Click += new System.EventHandler(this.Button_Add_Camp_Click);
+            // 
+            // Button_Del_Camp
+            // 
+            this.Button_Del_Camp.Location = new System.Drawing.Point(896, 192);
+            this.Button_Del_Camp.Name = "Button_Del_Camp";
+            this.Button_Del_Camp.Size = new System.Drawing.Size(135, 23);
+            this.Button_Del_Camp.TabIndex = 8;
+            this.Button_Del_Camp.Text = "Удалить стоянку";
+            this.Button_Del_Camp.UseVisualStyleBackColor = true;
+            this.Button_Del_Camp.Click += new System.EventHandler(this.Button_Del_Camp_Click);
+            // 
             // CampForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 525);
+            this.Controls.Add(this.Button_Del_Camp);
+            this.Controls.Add(this.Button_Add_Camp);
+            this.Controls.Add(this.labelCamps);
+            this.Controls.Add(this.textBoxNewCamp);
+            this.Controls.Add(this.listBoxCamp);
             this.Controls.Add(this.placeGroupBox);
             this.Controls.Add(this.parkExcavator);
             this.Controls.Add(this.parkTracked);
@@ -124,6 +179,7 @@
             this.placeGroupBox.ResumeLayout(false);
             this.placeGroupBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -134,7 +190,12 @@
         private System.Windows.Forms.Button parkExcavator;
         private System.Windows.Forms.GroupBox placeGroupBox;
         private System.Windows.Forms.Button takeExcavator;
-        private System.Windows.Forms.MaskedTextBox placeCount;
+        private System.Windows.Forms.MaskedTextBox MaskedBoxPlace;
         private System.Windows.Forms.Label place;
+        private System.Windows.Forms.ListBox listBoxCamp;
+        private System.Windows.Forms.TextBox textBoxNewCamp;
+        private System.Windows.Forms.Label labelCamps;
+        private System.Windows.Forms.Button Button_Add_Camp;
+        private System.Windows.Forms.Button Button_Del_Camp;
     }
 }

@@ -2,7 +2,7 @@
 
 namespace laba_kamyshov
 {
-    internal abstract class Vehicle : ITransport
+    public abstract class Vehicle : ITransport
     {
         protected float startPosX;
 

@@ -1,10 +1,13 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 
 namespace laba_kamyshov
 {
-    internal class Camp<T> where T : class, ITransport
+    public class Camp<T> where T : class, ITransport
     {
-        private readonly T[] places;
+        private readonly List<T> places;
+
+        private readonly int maxCount;
 
         private readonly int pictureWidth;
 
@@ -18,55 +21,44 @@ namespace laba_kamyshov
         {
             int width = picWidth / placeSizeWidth;
             int height = picHeight / placeSizeHeight;
-            places = new T[width * height];
+            maxCount = width * height;
+            places = new List<T>();
             pictureWidth = picWidth;
             pictureHeight = picHeight;
         }
 
         public static bool operator +(Camp<T> camp, T vehicle)
         {
-            int changeHeight = 10;
-            int width = camp.pictureWidth / camp.placeSizeWidth;
-
-            for (int i = 0; i < camp.places.Length; i++)
+            if (camp.places.Count >= camp.maxCount)
             {
-                if (camp.CheckFreePlace(i))
-                {
-                    camp.places[i] = vehicle;
-                    camp.places[i].SetPosition(i / width * camp.placeSizeWidth + changeHeight,
-                    i % width * camp.placeSizeHeight + changeHeight, camp.pictureWidth,
-                    camp.pictureHeight);
-                    return true;
-                }
+                return false;
             }
-            return false;
+            camp.places.Add(vehicle);
+            return true;
         }
+
         public static T operator -(Camp<T> camp, int index)
         {
-            if (index < 0 || index > camp.places.Length)
+            if (index < -1 || index > camp.places.Count)
             {
                 return null;
             }
-            if (!camp.CheckFreePlace(index))
-            {
-                T vehicle = camp.places[index];
-                camp.places[index] = null;
-                return vehicle;
-            }
-            return null;
-        }
-
-        private bool CheckFreePlace(int indexPlace)
-        {
-            return places[indexPlace] == null;
+            T vehicle = camp.places[index];
+            camp.places.RemoveAt(index);
+            return vehicle;
         }
 
         public void Draw(Graphics g)
         {
+            int changeHeight = 10;
+            int width = pictureWidth / placeSizeWidth;
             DrawMarking(g);
-            for (int i = 0; i < places.Length; i++)
+            for (int i = 0; i < places.Count; i++)
             {
-                places[i]?.DrawTransport(g);
+                places[i].SetPosition(i / width * placeSizeWidth + changeHeight,
+                    i % width * placeSizeHeight + changeHeight, pictureWidth,
+                    pictureHeight);
+                places[i].DrawTransport(g);
             }
         }
 

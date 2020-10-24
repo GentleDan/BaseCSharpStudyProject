@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camp.cs" />
+    <Compile Include="CampCollection.cs" />
     <Compile Include="Excavator.cs" />
     <Compile Include="ExcavatorForm.cs">
       <SubType>Form</SubType>
