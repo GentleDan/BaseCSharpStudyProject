@@ -6,15 +6,17 @@ namespace laba_kamyshov
     {
         protected readonly int Tracked_Vehicle_Width = 100;
         protected readonly int Tracked_Vehicle_Height = 100;
-        protected double changeWidth = 2.5;
-        protected double changeHeight = 1.7;
+        protected double changeWidth = 3.1;
+        protected double changeHeight = 2.1;
+
         public TrackedVehicle(int maxSpeed, float weight, Color mainColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
         }
-        protected TrackedVehicle(int maxSpeed, float weight, Color mainColor, int carWidth, int carHeight)
+        protected TrackedVehicle(int maxSpeed, float weight, Color mainColor, int carWidth, int
+carHeight)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
@@ -53,10 +55,13 @@ namespace laba_kamyshov
                     break;
             }
         }
+
+
         public override void DrawTransport(Graphics g)
         {
             Pen pen = new Pen(Color.Black, 3);
             Pen MainPen = new Pen(Color.Black, 5);
+
             //колеса гусеницы
             g.FillEllipse(new SolidBrush(Color.Black), startPosX + 45, startPosY + 105, Tracked_Vehicle_Width - 70, Tracked_Vehicle_Height - 70);
             g.FillEllipse(new SolidBrush(Color.Black), startPosX + 95, startPosY + 105, Tracked_Vehicle_Width - 70, Tracked_Vehicle_Height - 70);

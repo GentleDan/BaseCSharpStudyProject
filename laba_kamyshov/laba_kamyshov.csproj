@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Camp.cs" />
     <Compile Include="Excavator.cs" />
     <Compile Include="ExcavatorForm.cs">
       <SubType>Form</SubType>
@@ -53,12 +54,21 @@
     <Compile Include="ExcavatorForm.Designer.cs">
       <DependentUpon>ExcavatorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CampForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CampForm.Designer.cs">
+      <DependentUpon>CampForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrackedVehicle.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="ITransport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CampForm.resx">
+      <DependentUpon>CampForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ExcavatorForm.resx">
       <DependentUpon>ExcavatorForm.cs</DependentUpon>
     </EmbeddedResource>

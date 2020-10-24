@@ -34,8 +34,8 @@
             this.button_Left = new System.Windows.Forms.Button();
             this.button_Down = new System.Windows.Forms.Button();
             this.button_Right = new System.Windows.Forms.Button();
-            this.CreateTrackedVehicle_button = new System.Windows.Forms.Button();
-            this.CreateExcavator_button = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEx)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +58,7 @@
             this.button_Up.Size = new System.Drawing.Size(30, 30);
             this.button_Up.TabIndex = 1;
             this.button_Up.UseVisualStyleBackColor = true;
-            this.button_Up.Click += new System.EventHandler(this.Button_Move_Click);
+            this.button_Up.Click += new System.EventHandler(this.button_Move_Click);
             // 
             // button_Left
             // 
@@ -70,7 +70,7 @@
             this.button_Left.TabIndex = 2;
             this.button_Left.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.button_Left.UseVisualStyleBackColor = true;
-            this.button_Left.Click += new System.EventHandler(this.Button_Move_Click);
+            this.button_Left.Click += new System.EventHandler(this.button_Move_Click);
             // 
             // button_Down
             // 
@@ -81,7 +81,7 @@
             this.button_Down.Size = new System.Drawing.Size(30, 30);
             this.button_Down.TabIndex = 3;
             this.button_Down.UseVisualStyleBackColor = true;
-            this.button_Down.Click += new System.EventHandler(this.Button_Move_Click);
+            this.button_Down.Click += new System.EventHandler(this.button_Move_Click);
             // 
             // button_Right
             // 
@@ -92,42 +92,42 @@
             this.button_Right.Size = new System.Drawing.Size(30, 30);
             this.button_Right.TabIndex = 4;
             this.button_Right.UseVisualStyleBackColor = true;
-            this.button_Right.Click += new System.EventHandler(this.Button_Move_Click);
+            this.button_Right.Click += new System.EventHandler(this.button_Move_Click);
             // 
-            // CreateTrackedVehicle_button
+            // button1
             // 
-            this.CreateTrackedVehicle_button.Location = new System.Drawing.Point(12, 12);
-            this.CreateTrackedVehicle_button.Name = "CreateTrackedVehicle_button";
-            this.CreateTrackedVehicle_button.Size = new System.Drawing.Size(98, 27);
-            this.CreateTrackedVehicle_button.TabIndex = 5;
-            this.CreateTrackedVehicle_button.Text = "Create Tracked";
-            this.CreateTrackedVehicle_button.UseVisualStyleBackColor = true;
-            this.CreateTrackedVehicle_button.Click += new System.EventHandler(this.CreateTrackedVehicle_button_Click);
+            this.button1.Location = new System.Drawing.Point(29, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Create Track";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.CreateTrackedVehicle_button_Click);
             // 
-            // CreateExcavator_button
+            // button2
             // 
-            this.CreateExcavator_button.Location = new System.Drawing.Point(132, 12);
-            this.CreateExcavator_button.Name = "CreateExcavator_button";
-            this.CreateExcavator_button.Size = new System.Drawing.Size(98, 27);
-            this.CreateExcavator_button.TabIndex = 6;
-            this.CreateExcavator_button.Text = "Create Excavator";
-            this.CreateExcavator_button.UseVisualStyleBackColor = true;
-            this.CreateExcavator_button.Click += new System.EventHandler(this.CreateExcavator_button_Click);
+            this.button2.Location = new System.Drawing.Point(134, 31);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Create Excavator";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.CreateExcavator_button_Click);
             // 
             // ExcavatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.CreateExcavator_button);
-            this.Controls.Add(this.CreateTrackedVehicle_button);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button_Right);
             this.Controls.Add(this.button_Down);
             this.Controls.Add(this.button_Left);
             this.Controls.Add(this.button_Up);
             this.Controls.Add(this.pictureBoxEx);
             this.Name = "ExcavatorForm";
-            this.Text = "Form1";
+            this.Text = "Экскаватор";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEx)).EndInit();
             this.ResumeLayout(false);
 
@@ -140,7 +140,7 @@
         private System.Windows.Forms.Button button_Left;
         private System.Windows.Forms.Button button_Down;
         private System.Windows.Forms.Button button_Right;
-        private System.Windows.Forms.Button CreateTrackedVehicle_button;
-        private System.Windows.Forms.Button CreateExcavator_button;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

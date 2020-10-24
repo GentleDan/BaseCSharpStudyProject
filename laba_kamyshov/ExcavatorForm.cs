@@ -11,11 +11,18 @@ namespace laba_kamyshov
         {
             InitializeComponent();
         }
+
+        public void SetCar(ITransport excavator)
+        {
+            ex = excavator;
+            Draw();
+        }
+
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxEx.Width, pictureBoxEx.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            ex.DrawTransport(gr);
+            ex?.DrawTransport(gr);
             pictureBoxEx.Image = bmp;
         }
 
@@ -35,7 +42,7 @@ namespace laba_kamyshov
             Draw();
         }
 
-        private void Button_Move_Click(object sender, EventArgs e)
+        private void button_Move_Click(object sender, EventArgs e)
         {
             if (ex != null)
             {
@@ -43,16 +50,16 @@ namespace laba_kamyshov
                 switch (name)
                 {
                     case "button_Up":
-                        ex.MoveTransport(Direction.Up);
+                        ex?.MoveTransport(Direction.Up);
                         break;
                     case "button_Down":
-                        ex.MoveTransport(Direction.Down);
+                        ex?.MoveTransport(Direction.Down);
                         break;
                     case "button_Left":
-                        ex.MoveTransport(Direction.Left);
+                        ex?.MoveTransport(Direction.Left);
                         break;
                     case "button_Right":
-                        ex.MoveTransport(Direction.Right);
+                        ex?.MoveTransport(Direction.Right);
                         break;
                 }
                 Draw();

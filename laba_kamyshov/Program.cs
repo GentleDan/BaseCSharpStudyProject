@@ -13,7 +13,7 @@ namespace laba_kamyshov
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ExcavatorForm());
+            Application.Run(new CampForm());
         }
     }
 }
