@@ -22,18 +22,18 @@ namespace laba_kamyshov
             ButtonCancelChoose.Click += (object sender, EventArgs e) => { Close(); };
         }
 
-        private event VehicleDelegate eventAddTransport;
+       public Action<Vehicle> eventAddTransport;
 
         private void panelColor_MouseDown(object sender, MouseEventArgs e)
         {
             (sender as Control).DoDragDrop((sender as Control).BackColor, DragDropEffects.Move | DragDropEffects.Copy);
         }
 
-        public void AddEvent(VehicleDelegate ev)
+        public void AddEvent(Action<Vehicle> ev)
         {
             if (eventAddTransport == null)
             {
-                eventAddTransport = new VehicleDelegate(ev);
+                eventAddTransport = new Action<Vehicle>(ev);
             }
             else
             {

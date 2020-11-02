@@ -3,8 +3,6 @@ using System.Windows.Forms;
 
 namespace laba_kamyshov
 {
-    public delegate void VehicleDelegate(Vehicle transport);
-
     internal static class Program
     {
         /// <summary>
