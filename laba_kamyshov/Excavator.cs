@@ -22,6 +22,11 @@ namespace laba_kamyshov
             Stand = stand;
         }
 
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+        }
+
         public override void DrawTransport(Graphics g)
         {
             Pen pen = new Pen(Color.Black, 3);

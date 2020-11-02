@@ -5,7 +5,7 @@ namespace laba_kamyshov
 {
     public class CampCollection
     {
-        private readonly Dictionary<string, Camp<TrackedVehicle>> campStages;
+        private readonly Dictionary<string, Camp<Vehicle>> campStages;
         public List<string> Keys => campStages.Keys.ToList();
 
         private readonly int pictureWidth;
@@ -14,7 +14,7 @@ namespace laba_kamyshov
 
         public CampCollection(int pictureWidth, int pictureHeight)
         {
-            campStages = new Dictionary<string, Camp<TrackedVehicle>>();
+            campStages = new Dictionary<string, Camp<Vehicle>>();
             this.pictureWidth = pictureWidth;
             this.pictureHeight = pictureHeight;
         }
@@ -25,7 +25,7 @@ namespace laba_kamyshov
             {
                 return;
             }
-            campStages.Add(name, new Camp<TrackedVehicle>(pictureWidth, pictureHeight));
+            campStages.Add(name, new Camp<Vehicle>(pictureWidth, pictureHeight));
         }
 
         public void DeleteParking(string name)
@@ -44,7 +44,7 @@ namespace laba_kamyshov
             }
         }
 
-        public Camp<TrackedVehicle> this[string ind]
+        public Camp<Vehicle> this[string ind]
         {
             get
             {

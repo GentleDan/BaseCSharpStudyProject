@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.pictureCampBox = new System.Windows.Forms.PictureBox();
-            this.parkTracked = new System.Windows.Forms.Button();
-            this.parkExcavator = new System.Windows.Forms.Button();
             this.placeGroupBox = new System.Windows.Forms.GroupBox();
             this.takeExcavator = new System.Windows.Forms.Button();
             this.MaskedBoxPlace = new System.Windows.Forms.MaskedTextBox();
@@ -40,6 +38,7 @@
             this.labelCamps = new System.Windows.Forms.Label();
             this.Button_Add_Camp = new System.Windows.Forms.Button();
             this.Button_Del_Camp = new System.Windows.Forms.Button();
+            this.buttonCreateTransport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCampBox)).BeginInit();
             this.placeGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -54,26 +53,6 @@
             this.pictureCampBox.TabIndex = 0;
             this.pictureCampBox.TabStop = false;
             // 
-            // parkTracked
-            // 
-            this.parkTracked.Location = new System.Drawing.Point(896, 257);
-            this.parkTracked.Name = "parkTracked";
-            this.parkTracked.Size = new System.Drawing.Size(135, 49);
-            this.parkTracked.TabIndex = 1;
-            this.parkTracked.Text = "Припарковать гусеничную машину";
-            this.parkTracked.UseVisualStyleBackColor = true;
-            this.parkTracked.Click += new System.EventHandler(this.parkTracked_Click);
-            // 
-            // parkExcavator
-            // 
-            this.parkExcavator.Location = new System.Drawing.Point(896, 312);
-            this.parkExcavator.Name = "parkExcavator";
-            this.parkExcavator.Size = new System.Drawing.Size(135, 63);
-            this.parkExcavator.TabIndex = 2;
-            this.parkExcavator.Text = "Припарковать экскаватор ";
-            this.parkExcavator.UseVisualStyleBackColor = true;
-            this.parkExcavator.Click += new System.EventHandler(this.parkExcavator_Click);
-            // 
             // placeGroupBox
             // 
             this.placeGroupBox.Controls.Add(this.takeExcavator);
@@ -84,7 +63,7 @@
             this.placeGroupBox.Size = new System.Drawing.Size(135, 100);
             this.placeGroupBox.TabIndex = 3;
             this.placeGroupBox.TabStop = false;
-            this.placeGroupBox.Text = "Забрать экскаватор";
+            this.placeGroupBox.Text = "Забрать транспорт";
             // 
             // takeExcavator
             // 
@@ -94,7 +73,7 @@
             this.takeExcavator.TabIndex = 2;
             this.takeExcavator.Text = "Забрать";
             this.takeExcavator.UseVisualStyleBackColor = true;
-            this.takeExcavator.Click += new System.EventHandler(this.takeExcavator_Click);
+            this.takeExcavator.Click += new System.EventHandler(this.TakeExcavator_Click);
             // 
             // MaskedBoxPlace
             // 
@@ -121,7 +100,7 @@
             this.listBoxCamp.Name = "listBoxCamp";
             this.listBoxCamp.Size = new System.Drawing.Size(132, 95);
             this.listBoxCamp.TabIndex = 4;
-            this.listBoxCamp.SelectedIndexChanged += new System.EventHandler(this.listBoxCamp_SelectedIndexChanged);
+            this.listBoxCamp.SelectedIndexChanged += new System.EventHandler(this.ListBoxCamp_SelectedIndexChanged);
             // 
             // textBoxNewCamp
             // 
@@ -159,19 +138,28 @@
             this.Button_Del_Camp.UseVisualStyleBackColor = true;
             this.Button_Del_Camp.Click += new System.EventHandler(this.Button_Del_Camp_Click);
             // 
+            // buttonCreateTransport
+            // 
+            this.buttonCreateTransport.Location = new System.Drawing.Point(896, 243);
+            this.buttonCreateTransport.Name = "buttonCreateTransport";
+            this.buttonCreateTransport.Size = new System.Drawing.Size(132, 101);
+            this.buttonCreateTransport.TabIndex = 9;
+            this.buttonCreateTransport.Text = "Добавить транспорт";
+            this.buttonCreateTransport.UseVisualStyleBackColor = true;
+            this.buttonCreateTransport.Click += new System.EventHandler(this.buttonCreateTransport_Click);
+            // 
             // CampForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 525);
+            this.Controls.Add(this.buttonCreateTransport);
             this.Controls.Add(this.Button_Del_Camp);
             this.Controls.Add(this.Button_Add_Camp);
             this.Controls.Add(this.labelCamps);
             this.Controls.Add(this.textBoxNewCamp);
             this.Controls.Add(this.listBoxCamp);
             this.Controls.Add(this.placeGroupBox);
-            this.Controls.Add(this.parkExcavator);
-            this.Controls.Add(this.parkTracked);
             this.Controls.Add(this.pictureCampBox);
             this.Name = "CampForm";
             this.Text = "Стоянка";
@@ -186,8 +174,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureCampBox;
-        private System.Windows.Forms.Button parkTracked;
-        private System.Windows.Forms.Button parkExcavator;
         private System.Windows.Forms.GroupBox placeGroupBox;
         private System.Windows.Forms.Button takeExcavator;
         private System.Windows.Forms.MaskedTextBox MaskedBoxPlace;
@@ -197,5 +183,6 @@
         private System.Windows.Forms.Label labelCamps;
         private System.Windows.Forms.Button Button_Add_Camp;
         private System.Windows.Forms.Button Button_Del_Camp;
+        private System.Windows.Forms.Button buttonCreateTransport;
     }
 }

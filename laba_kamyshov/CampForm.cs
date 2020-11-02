@@ -77,53 +77,11 @@ namespace laba_kamyshov
             }
         }
 
-        private void parkTracked_Click(object sender, EventArgs e)
-        {
-            if (listBoxCamp.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    TrackedVehicle tracked = new TrackedVehicle(100, 1000, dialog.Color);
-                    if (campCollection[listBoxCamp.SelectedItem.ToString()] + tracked)
-                    {
-                        Draw();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Стоянка переполнена");
-                    }
-                }
-            }
-        }
-        private void parkExcavator_Click(object sender, EventArgs e)
-        {
-            if (listBoxCamp.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        Excavator ex = new Excavator(100, 1000, dialog.Color, dialogDop.Color, true, true, true);
-                        if (campCollection[listBoxCamp.SelectedItem.ToString()] + ex)
-                        {
-                            Draw();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Стоянка переполнена");
-                        }
-                    }
-                }
-            }
-        }
-        private void takeExcavator_Click(object sender, EventArgs e)
+        private void TakeExcavator_Click(object sender, EventArgs e)
         {
             if (listBoxCamp.SelectedIndex > -1 && MaskedBoxPlace.Text != "")
             {
-                TrackedVehicle vehicle = campCollection[listBoxCamp.SelectedItem.ToString()] -
+                Vehicle vehicle = campCollection[listBoxCamp.SelectedItem.ToString()] -
                 Convert.ToInt32(MaskedBoxPlace.Text);
                 if (vehicle != null)
                 {
@@ -135,9 +93,34 @@ namespace laba_kamyshov
             }
         }
 
-        private void listBoxCamp_SelectedIndexChanged(object sender, EventArgs e)
+        private void AddCar(Vehicle transport)
+        {
+            if (transport != null && listBoxCamp.SelectedIndex > -1)
+            {
+                if ((campCollection[listBoxCamp.SelectedItem.ToString()]) + transport)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Не удалось поставить транспорт");
+                }
+            }
+        }
+
+        private void ListBoxCamp_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
+        }
+
+        private void buttonCreateTransport_Click(object sender, EventArgs e)
+        {
+            if (listBoxCamp.SelectedItem != null)
+            {
+                var typeOfTranpsortConfigForm = new TypeOfTranpsortConfigForm();
+                typeOfTranpsortConfigForm.AddEvent(AddCar);
+                typeOfTranpsortConfigForm.Show();
+            }
         }
     }
 }
