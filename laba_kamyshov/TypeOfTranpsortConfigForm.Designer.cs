@@ -247,6 +247,7 @@
             // panelColorBlue
             // 
             this.panelColorBlue.BackColor = System.Drawing.Color.Blue;
+            this.panelColorBlue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelColorBlue.Location = new System.Drawing.Point(233, 157);
             this.panelColorBlue.Name = "panelColorBlue";
             this.panelColorBlue.Size = new System.Drawing.Size(30, 30);
@@ -255,6 +256,7 @@
             // panelColorGreen
             // 
             this.panelColorGreen.BackColor = System.Drawing.Color.Green;
+            this.panelColorGreen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelColorGreen.Location = new System.Drawing.Point(175, 157);
             this.panelColorGreen.Name = "panelColorGreen";
             this.panelColorGreen.Size = new System.Drawing.Size(30, 30);
@@ -263,6 +265,7 @@
             // panelColorOrange
             // 
             this.panelColorOrange.BackColor = System.Drawing.Color.Orange;
+            this.panelColorOrange.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelColorOrange.Location = new System.Drawing.Point(111, 157);
             this.panelColorOrange.Name = "panelColorOrange";
             this.panelColorOrange.Size = new System.Drawing.Size(30, 30);
@@ -271,6 +274,7 @@
             // panelColorGray
             // 
             this.panelColorGray.BackColor = System.Drawing.Color.Gray;
+            this.panelColorGray.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelColorGray.Location = new System.Drawing.Point(45, 157);
             this.panelColorGray.Name = "panelColorGray";
             this.panelColorGray.Size = new System.Drawing.Size(30, 30);
@@ -279,6 +283,7 @@
             // panelColorWhite
             // 
             this.panelColorWhite.BackColor = System.Drawing.Color.White;
+            this.panelColorWhite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelColorWhite.Location = new System.Drawing.Point(233, 112);
             this.panelColorWhite.Name = "panelColorWhite";
             this.panelColorWhite.Size = new System.Drawing.Size(30, 30);
@@ -287,6 +292,7 @@
             // panelColorBlack
             // 
             this.panelColorBlack.BackColor = System.Drawing.Color.Black;
+            this.panelColorBlack.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelColorBlack.Location = new System.Drawing.Point(175, 112);
             this.panelColorBlack.Name = "panelColorBlack";
             this.panelColorBlack.Size = new System.Drawing.Size(30, 30);
@@ -295,6 +301,7 @@
             // panelColorYellow
             // 
             this.panelColorYellow.BackColor = System.Drawing.Color.Yellow;
+            this.panelColorYellow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelColorYellow.Location = new System.Drawing.Point(111, 112);
             this.panelColorYellow.Name = "panelColorYellow";
             this.panelColorYellow.Size = new System.Drawing.Size(30, 30);
@@ -303,6 +310,7 @@
             // panelColorRed
             // 
             this.panelColorRed.BackColor = System.Drawing.Color.Red;
+            this.panelColorRed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelColorRed.Location = new System.Drawing.Point(45, 112);
             this.panelColorRed.Name = "panelColorRed";
             this.panelColorRed.Size = new System.Drawing.Size(30, 30);

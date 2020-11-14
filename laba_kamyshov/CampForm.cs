@@ -93,7 +93,7 @@ namespace laba_kamyshov
             }
         }
 
-        private void AddCar(Vehicle transport)
+        private void AddTransport(Vehicle transport)
         {
             if (transport != null && listBoxCamp.SelectedIndex > -1)
             {
@@ -118,7 +118,7 @@ namespace laba_kamyshov
             if (listBoxCamp.SelectedItem != null)
             {
                 var typeOfTranpsortConfigForm = new TypeOfTranpsortConfigForm();
-                typeOfTranpsortConfigForm.AddEvent(AddCar);
+                typeOfTranpsortConfigForm.AddEvent(AddTransport);
                 typeOfTranpsortConfigForm.Show();
             }
         }
