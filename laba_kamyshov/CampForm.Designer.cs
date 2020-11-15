@@ -39,17 +39,24 @@
             this.Button_Add_Camp = new System.Windows.Forms.Button();
             this.Button_Del_Camp = new System.Windows.Forms.Button();
             this.buttonCreateTransport = new System.Windows.Forms.Button();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DownloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCampBox)).BeginInit();
             this.placeGroupBox.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureCampBox
             // 
             this.pictureCampBox.BackColor = System.Drawing.Color.White;
             this.pictureCampBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureCampBox.Location = new System.Drawing.Point(0, 0);
+            this.pictureCampBox.Location = new System.Drawing.Point(0, 24);
             this.pictureCampBox.Name = "pictureCampBox";
-            this.pictureCampBox.Size = new System.Drawing.Size(890, 525);
+            this.pictureCampBox.Size = new System.Drawing.Size(890, 501);
             this.pictureCampBox.TabIndex = 0;
             this.pictureCampBox.TabStop = false;
             // 
@@ -148,6 +155,48 @@
             this.buttonCreateTransport.UseVisualStyleBackColor = true;
             this.buttonCreateTransport.Click += new System.EventHandler(this.buttonCreateTransport_Click);
             // 
+            // menuStrip
+            // 
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1040, 24);
+            this.menuStrip.TabIndex = 10;
+            this.menuStrip.Text = "menuStrip";
+            // 
+            // FileToolStripMenuItem
+            // 
+            this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SaveToolStripMenuItem,
+            this.DownloadToolStripMenuItem});
+            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.FileToolStripMenuItem.Text = "Файл";
+            // 
+            // SaveToolStripMenuItem
+            // 
+            this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SaveToolStripMenuItem.Text = "Сохранить";
+            this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
+            // 
+            // DownloadToolStripMenuItem
+            // 
+            this.DownloadToolStripMenuItem.Name = "DownloadToolStripMenuItem";
+            this.DownloadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.DownloadToolStripMenuItem.Text = "Загрузить";
+            this.DownloadToolStripMenuItem.Click += new System.EventHandler(this.DownloadToolStripMenuItem_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
+            this.openFileDialog.Filter = "txt file | *.txt";
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "txt file | *.txt";
+            // 
             // CampForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,11 +210,15 @@
             this.Controls.Add(this.listBoxCamp);
             this.Controls.Add(this.placeGroupBox);
             this.Controls.Add(this.pictureCampBox);
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "CampForm";
             this.Text = "Стоянка";
             ((System.ComponentModel.ISupportInitialize)(this.pictureCampBox)).EndInit();
             this.placeGroupBox.ResumeLayout(false);
             this.placeGroupBox.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,5 +237,11 @@
         private System.Windows.Forms.Button Button_Add_Camp;
         private System.Windows.Forms.Button Button_Del_Camp;
         private System.Windows.Forms.Button buttonCreateTransport;
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SaveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DownloadToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }

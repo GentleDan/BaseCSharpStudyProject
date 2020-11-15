@@ -77,6 +77,15 @@ namespace laba_kamyshov
                (pictureHeight / placeSizeHeight) * placeSizeHeight);
             }
         }
+
+        public T GetNext(int index)
+        {
+            if (index < 0 || index >= places.Count)
+            {
+                return null;
+            }
+            return places[index];
+        }
     }
 }
 

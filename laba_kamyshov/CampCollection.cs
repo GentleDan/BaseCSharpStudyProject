@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace laba_kamyshov
@@ -11,6 +12,8 @@ namespace laba_kamyshov
         private readonly int pictureWidth;
 
         private readonly int pictureHeight;
+
+        private readonly char separator = ':';
 
         public CampCollection(int pictureWidth, int pictureHeight)
         {
@@ -56,5 +59,80 @@ namespace laba_kamyshov
             }
         }
 
+        public bool SaveData(string filename)
+        {
+            using (StreamWriter streamWriter = new StreamWriter
+            (filename, false, System.Text.Encoding.Default))
+            {
+                streamWriter.WriteLine("CampCollection");
+                foreach (var level in campStages)
+                {
+                    streamWriter.WriteLine("Camp" + separator + level.Key);
+
+                    ITransport truck;
+                    for (int i = 0; (truck = level.Value.GetNext(i)) != null; i++)
+                    {
+                        if (truck.GetType().Name == "TrackedVehicle")
+                        {
+                            streamWriter.Write("TrackedVehicle" + separator);
+                        }
+                        else if (truck.GetType().Name == "Excavator")
+                        {
+                            streamWriter.Write("Excavator" + separator);
+                        }
+                        streamWriter.WriteLine(truck);
+                    }
+                }
+                return true;
+            }
+        }
+
+        public bool LoadData(string filename)
+        {
+            if (!File.Exists(filename))
+            {
+                return false;
+            }
+
+            using (StreamReader streamReader = new StreamReader
+            (filename, System.Text.Encoding.Default))
+            {
+                if (streamReader.ReadLine().Contains("CampCollection"))
+                {
+                    campStages.Clear();
+                }
+                else
+                {
+                    return false;
+                }
+                Vehicle transport = null;
+                string key = string.Empty;
+                string line;
+                for (int i = 0; (line = streamReader.ReadLine()) != null; i++)
+                {
+                    if (line.Contains("Camp"))
+                    {
+                        key = line.Split(separator)[1];
+                        campStages.Add(key, new Camp<Vehicle>(pictureWidth, pictureHeight));
+                    }
+                    else if (line.Contains(separator))
+                    {
+                        if (line.Contains("TrackedVehicle"))
+                        {
+                            transport = new TrackedVehicle(line.Split(separator)[1]);
+                        }
+                        else if (line.Contains("Excavator"))
+                        {
+                            transport = new Excavator(line.Split(separator)[1]);
+                        }
+                        if (!(campStages[key] + transport))
+                        {
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+        }
     }
 }

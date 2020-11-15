@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace laba_kamyshov
 {
@@ -8,6 +9,7 @@ namespace laba_kamyshov
         protected readonly int Tracked_Vehicle_Height = 100;
         protected double changeWidth = 3.1;
         protected double changeHeight = 2.1;
+        protected readonly char separator = ';';
 
         public TrackedVehicle(int maxSpeed, float weight, Color mainColor)
         {
@@ -24,6 +26,18 @@ carHeight)
             Tracked_Vehicle_Width = carWidth;
             Tracked_Vehicle_Height = carHeight;
         }
+
+        public TrackedVehicle(string info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
+        }
+
         public override void MoveTransport(Direction direction)
         {
             float step = MaxSpeed * 100 / Weight;
@@ -55,7 +69,6 @@ carHeight)
                     break;
             }
         }
-
 
         public override void DrawTransport(Graphics g)
         {
@@ -89,6 +102,11 @@ carHeight)
             //дверь
             g.FillRectangle(new SolidBrush(Color.Gray), startPosX + 110, startPosY + 40, Tracked_Vehicle_Width - 65, Tracked_Vehicle_Height - 60);
             g.FillRectangle(new SolidBrush(Color.Black), startPosX + 110, startPosY + 60, Tracked_Vehicle_Width - 65, Tracked_Vehicle_Height - 80);
+        }
+
+        public override string ToString()
+        {
+            return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
         }
     }
 }

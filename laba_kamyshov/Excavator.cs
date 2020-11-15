@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace laba_kamyshov
 {
@@ -20,6 +21,21 @@ namespace laba_kamyshov
             Flasher = flasher;
             Ladle = ladle;
             Stand = stand;
+        }
+
+        public Excavator(string info) : base(info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 7)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                Flasher = Convert.ToBoolean(strs[4]);
+                Ladle = Convert.ToBoolean(strs[5]);
+                Stand = Convert.ToBoolean(strs[6]);
+            }
         }
 
         public void SetDopColor(Color color)
@@ -68,6 +84,12 @@ namespace laba_kamyshov
                 g.DrawRectangle(pen, startPosX + 70, startPosY + 5, Tracked_Vehicle_Width - 92, Tracked_Vehicle_Height - 85);
             }
             base.DrawTransport(g);
+        }
+
+        public override string ToString()
+        {
+            return
+           $"{base.ToString()}{separator}{DopColor.Name}{separator}{Flasher}{separator}{Ladle}{separator}{Stand}";
         }
     }
 }
