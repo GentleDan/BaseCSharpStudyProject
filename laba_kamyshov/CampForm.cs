@@ -137,7 +137,7 @@ namespace laba_kamyshov
                     MessageBox.Show("Сохранение не выполнено", "Результат",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
+            }
         }
 
         private void DownloadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -156,7 +156,7 @@ namespace laba_kamyshov
                     MessageBox.Show("Загрузка не выполнена", "Результат", MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
                 }
-            }
+            }
         }
     }
 }
