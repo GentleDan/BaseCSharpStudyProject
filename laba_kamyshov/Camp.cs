@@ -31,7 +31,7 @@ namespace laba_kamyshov
         {
             if (camp.places.Count >= camp.maxCount)
             {
-                return false;
+                throw new ParkingOverflowException();
             }
             camp.places.Add(vehicle);
             return true;
@@ -41,7 +41,7 @@ namespace laba_kamyshov
         {
             if (index < -1 || index > camp.places.Count)
             {
-                return null;
+                throw new ParkingNotFoundException(index);
             }
             T vehicle = camp.places[index];
             camp.places.RemoveAt(index);
