@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -59,7 +60,7 @@ namespace laba_kamyshov
             }
         }
 
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             using (StreamWriter streamWriter = new StreamWriter
             (filename, false, System.Text.Encoding.Default))
@@ -83,17 +84,15 @@ namespace laba_kamyshov
                         streamWriter.WriteLine(truck);
                     }
                 }
-                return true;
             }
         }
 
-        public bool LoadData(string filename)
+        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
-
             using (StreamReader streamReader = new StreamReader
             (filename, System.Text.Encoding.Default))
             {
@@ -103,7 +102,7 @@ namespace laba_kamyshov
                 }
                 else
                 {
-                    return false;
+                    throw new Exception("Неверный формат файла");
                 }
                 Vehicle transport = null;
                 string key = string.Empty;
@@ -127,11 +126,10 @@ namespace laba_kamyshov
                         }
                         if (!(campStages[key] + transport))
                         {
-                            return false;
+                            throw new Exception("Не удалось загрузить автомобиль на парковку");
                         }
                     }
                 }
-                return true;
             }
         }
     }

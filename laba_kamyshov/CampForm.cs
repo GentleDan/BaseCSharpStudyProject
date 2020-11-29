@@ -1,5 +1,7 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 
@@ -9,11 +11,13 @@ namespace laba_kamyshov
     {
         private readonly CampCollection campCollection;
 
+        private readonly Logger logger;
+
         public CampForm()
         {
             InitializeComponent();
             campCollection = new CampCollection(pictureCampBox.Width, pictureCampBox.Height);
-            Draw();
+            logger = LogManager.GetCurrentClassLogger();
         }
 
         private void ReloadLevels()
@@ -56,6 +60,7 @@ namespace laba_kamyshov
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            logger.Info($"Добавили парковку {textBoxNewCamp.Text}");
             campCollection.AddParking(textBoxNewCamp.Text);
             ReloadLevels();
         }
@@ -67,6 +72,7 @@ namespace laba_kamyshov
                 if (MessageBox.Show($"Удалить стоянку {listBoxCamp.SelectedItem.ToString()}?", "Удаление",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    logger.Info($"Удалили парковку{listBoxCamp.SelectedItem.ToString()}");
                     campCollection.DeleteParking(listBoxCamp.SelectedItem.ToString());
                     ReloadLevels();
                 }
@@ -81,14 +87,27 @@ namespace laba_kamyshov
         {
             if (listBoxCamp.SelectedIndex > -1 && MaskedBoxPlace.Text != "")
             {
-                Vehicle vehicle = campCollection[listBoxCamp.SelectedItem.ToString()] -
-                Convert.ToInt32(MaskedBoxPlace.Text);
-                if (vehicle != null)
+                try
                 {
-                    ExcavatorForm form = new ExcavatorForm();
-                    form.SetCar(vehicle);
-                    Draw();
-                    form.ShowDialog();
+                    Vehicle vehicle = campCollection[listBoxCamp.SelectedItem.ToString()] -
+                    Convert.ToInt32(MaskedBoxPlace.Text);
+                    if (vehicle != null)
+                    {
+                        ExcavatorForm form = new ExcavatorForm();
+                        form.SetCar(vehicle);
+                        Draw();
+                        form.ShowDialog();
+                        logger.Info($"Изъят автомобиль {vehicle} с места{MaskedBoxPlace.Text}");
+
+                    }
+                }
+                catch (ParkingNotFoundException ex)
+                {
+                    MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -97,19 +116,33 @@ namespace laba_kamyshov
         {
             if (transport != null && listBoxCamp.SelectedIndex > -1)
             {
-                if ((campCollection[listBoxCamp.SelectedItem.ToString()]) + transport)
+                try
                 {
+                    if ((campCollection[listBoxCamp.SelectedItem.ToString()]) + transport)
+                    {
+                        Draw();
+                        logger.Info($"Добавлен автомобиль {transport}");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не удалось поставить транспорт");
+                    }
                     Draw();
                 }
-                else
+                catch (ParkingOverflowException ex)
                 {
-                    MessageBox.Show("Не удалось поставить транспорт");
+                    MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void ListBoxCamp_SelectedIndexChanged(object sender, EventArgs e)
         {
+            logger.Info($"Перешли на парковку{listBoxCamp.SelectedItem.ToString()}");
             Draw();
         }
 
@@ -127,15 +160,15 @@ namespace laba_kamyshov
         {
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (campCollection.SaveData(saveFileDialog.FileName))
+                try
                 {
-                    MessageBox.Show("Сохранение прошло успешно", "Результат",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    campCollection.SaveData(saveFileDialog.FileName);
+                    MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Сохранено в файл " + saveFileDialog.FileName);
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Сохранение не выполнено", "Результат",
-                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -144,17 +177,21 @@ namespace laba_kamyshov
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (campCollection.LoadData(openFileDialog.FileName))
+                try
                 {
-                    MessageBox.Show("Загрузка прошла успешно", "Результат", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
+                    campCollection.LoadData(openFileDialog.FileName);
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Загружено из файла " + openFileDialog.FileName);
                     ReloadLevels();
                     Draw();
                 }
-                else
+                catch (ParkingOccupiedPlaceException ex)
                 {
-                    MessageBox.Show("Загрузка не выполнена", "Результат", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
