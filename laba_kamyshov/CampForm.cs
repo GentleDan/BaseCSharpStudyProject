@@ -1,7 +1,6 @@
 ﻿using NLog;
 using System;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 
@@ -103,10 +102,12 @@ namespace laba_kamyshov
                 }
                 catch (ParkingNotFoundException ex)
                 {
+                    logger.Warn(ex);
                     MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
+                    logger.Warn(ex);
                     MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -131,10 +132,12 @@ namespace laba_kamyshov
                 }
                 catch (ParkingOverflowException ex)
                 {
+                    logger.Warn(ex);
                     MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
+                    logger.Warn(ex);
                     MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -150,7 +153,7 @@ namespace laba_kamyshov
         {
             if (listBoxCamp.SelectedItem != null)
             {
-                var typeOfTranpsortConfigForm = new TypeOfTranpsortConfigForm();
+                TypeOfTranpsortConfigForm typeOfTranpsortConfigForm = new TypeOfTranpsortConfigForm();
                 typeOfTranpsortConfigForm.AddEvent(AddTransport);
                 typeOfTranpsortConfigForm.Show();
             }
@@ -168,6 +171,7 @@ namespace laba_kamyshov
                 }
                 catch (Exception ex)
                 {
+                    logger.Warn(ex);
                     MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -187,11 +191,13 @@ namespace laba_kamyshov
                 }
                 catch (ParkingOccupiedPlaceException ex)
                 {
+                    logger.Warn(ex);
                     MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Warn(ex);
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при загрузке", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
