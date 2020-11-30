@@ -97,17 +97,16 @@ namespace laba_kamyshov
                         Draw();
                         form.ShowDialog();
                         logger.Info($"Изъят автомобиль {vehicle} с места{MaskedBoxPlace.Text}");
-
                     }
                 }
                 catch (ParkingNotFoundException ex)
                 {
-                    logger.Warn(ex);
+                    logger.Warn("Попытка забрать транспорт с незанятого места");
                     MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
-                    logger.Warn(ex);
+                    logger.Warn("Неудачная попытка забрать транспорт со стоянки");
                     MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -132,12 +131,12 @@ namespace laba_kamyshov
                 }
                 catch (ParkingOverflowException ex)
                 {
-                    logger.Warn(ex);
+                    logger.Warn("Попытка добавить транспорт в заполненную стоянку");
                     MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
-                    logger.Warn(ex);
+                    logger.Warn("Неудачная попытка добавления транспорта");
                     MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -145,7 +144,7 @@ namespace laba_kamyshov
 
         private void ListBoxCamp_SelectedIndexChanged(object sender, EventArgs e)
         {
-            logger.Info($"Перешли на парковку{listBoxCamp.SelectedItem.ToString()}");
+            logger.Info($"Перешли на парковку {listBoxCamp.SelectedItem.ToString()}");
             Draw();
         }
 
@@ -171,7 +170,7 @@ namespace laba_kamyshov
                 }
                 catch (Exception ex)
                 {
-                    logger.Warn(ex);
+                    logger.Warn("Неудачная попытка сохранить файл");
                     MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -191,12 +190,12 @@ namespace laba_kamyshov
                 }
                 catch (ParkingOccupiedPlaceException ex)
                 {
-                    logger.Warn(ex);
+                    logger.Warn("Попытка поставить транспорт на занятое место");
                     MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
-                    logger.Warn(ex);
+                    logger.Warn("Неудачная попытка загрузки файла");
                     MessageBox.Show(ex.Message, "Неизвестная ошибка при загрузке", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
