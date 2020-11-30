@@ -102,7 +102,7 @@ namespace laba_kamyshov
                 }
                 else
                 {
-                    throw new Exception("Неверный формат файла");
+                    throw new FormatException("Неверный формат файла");
                 }
                 Vehicle transport = null;
                 string key = string.Empty;
@@ -126,7 +126,7 @@ namespace laba_kamyshov
                         }
                         if (!(campStages[key] + transport))
                         {
-                            throw new Exception("Не удалось загрузить автомобиль на парковку");
+                            throw new TypeLoadException("Не удалось загрузить автомобиль на парковку");
                         }
                     }
                 }
