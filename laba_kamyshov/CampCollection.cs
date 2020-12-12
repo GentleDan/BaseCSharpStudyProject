@@ -66,7 +66,7 @@ namespace laba_kamyshov
             (filename, false, System.Text.Encoding.Default))
             {
                 streamWriter.WriteLine("CampCollection");
-                foreach (var level in campStages)
+                foreach (KeyValuePair<string, Camp<Vehicle>> level in campStages)
                 {
                     streamWriter.WriteLine("Camp" + separator + level.Key);
 

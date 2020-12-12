@@ -188,11 +188,6 @@ namespace laba_kamyshov
                     ReloadLevels();
                     Draw();
                 }
-                catch (ParkingOccupiedPlaceException ex)
-                {
-                    logger.Warn("Попытка поставить транспорт на занятое место");
-                    MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
                 catch (Exception ex)
                 {
                     logger.Warn("Неудачная попытка загрузки файла");

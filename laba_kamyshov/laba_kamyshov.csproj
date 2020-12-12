@@ -56,7 +56,6 @@
   <ItemGroup>
     <Compile Include="Camp.cs" />
     <Compile Include="CampCollection.cs" />
-    <Compile Include="ParkingOccupiedPlaceException .cs" />
     <Compile Include="ParkingNotFoundException.cs" />
     <Compile Include="ParkingOverflowException.cs" />
     <Compile Include="Excavator.cs" />
@@ -109,7 +108,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="NLog.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\kisspng-arrow-button-icon-right-arrow-transparent-background-5a77bc2a39d211.9125852015177963942368.png" />
