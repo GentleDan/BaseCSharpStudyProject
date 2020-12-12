@@ -195,5 +195,15 @@ namespace laba_kamyshov
                 }
             }
         }
+
+        private void SortButton_Click(object sender, EventArgs e)
+        {
+            if (listBoxCamp.SelectedIndex > -1)
+            {
+                campCollection[listBoxCamp.SelectedItem.ToString()].Sort();
+                Draw();
+                logger.Info("Сортировка уровней");
+            }
+        }
     }
 }

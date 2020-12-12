@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace laba_kamyshov
 {
-    public class TrackedVehicle : Vehicle
+    public class TrackedVehicle : Vehicle, IEquatable<TrackedVehicle> 
     {
         protected readonly int Tracked_Vehicle_Width = 100;
         protected readonly int Tracked_Vehicle_Height = 100;
@@ -108,5 +108,47 @@ carHeight)
         {
             return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
         }
+
+        public bool Equals(TrackedVehicle other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is TrackedVehicle trackedVehicleObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(trackedVehicleObj);
+            }
+        }
+
     }
 }

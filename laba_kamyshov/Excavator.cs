@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace laba_kamyshov
 {
-    internal class Excavator : TrackedVehicle
+    internal class Excavator : TrackedVehicle, IEquatable<Excavator>
     {
         public Color DopColor
         { protected set; get; }
@@ -90,6 +90,64 @@ namespace laba_kamyshov
         {
             return
            $"{base.ToString()}{separator}{DopColor.Name}{separator}{Flasher}{separator}{Ladle}{separator}{Stand}";
+        }
+
+        public bool Equals(Excavator other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (Flasher != other.Flasher)
+            {
+                return false;
+            }
+            if (Ladle != other.Ladle)
+            {
+                return false;
+            }
+            if (Stand != other.Stand)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+         
+            return false;
+            }
+            if (!(obj is Excavator excavatorObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(excavatorObj);
+            }
         }
     }
 }

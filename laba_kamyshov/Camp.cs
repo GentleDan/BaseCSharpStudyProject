@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace laba_kamyshov
 {
-    public class Camp<T> where T : class, ITransport
+    public class Camp<T> : IEnumerator<T>, IEnumerable<T> where T : class, ITransport
     {
         private readonly List<T> places;
 
@@ -17,6 +18,12 @@ namespace laba_kamyshov
 
         private readonly int placeSizeHeight = 160;
 
+        private int currentIndex;
+
+        public T Current => places[currentIndex];
+
+        object IEnumerator.Current => places[currentIndex];
+
         public Camp(int picWidth, int picHeight)
         {
             int width = picWidth / placeSizeWidth;
@@ -25,6 +32,7 @@ namespace laba_kamyshov
             places = new List<T>();
             pictureWidth = picWidth;
             pictureHeight = picHeight;
+            currentIndex = -1;
         }
 
         public static bool operator +(Camp<T> camp, T vehicle)
@@ -33,6 +41,11 @@ namespace laba_kamyshov
             {
                 throw new ParkingOverflowException();
             }
+            if (camp.places.Contains(vehicle))
+            {
+                throw new CampAlreadyHaveException();
+            }
+
             camp.places.Add(vehicle);
             return true;
         }
@@ -85,6 +98,36 @@ namespace laba_kamyshov
                 return null;
             }
             return places[index];
+        }
+
+        public void Sort()
+        {
+            places.Sort((IComparer<T>)new TrackedVehicleComparer());
+        }
+
+        public void Dispose()
+        {
+        }
+
+        public bool MoveNext()
+        {
+            currentIndex++;
+            return (currentIndex < places.Count);
+        }
+
+        public void Reset()
+        {
+            currentIndex = -1;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this;
         }
     }
 }

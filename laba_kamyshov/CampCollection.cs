@@ -69,19 +69,17 @@ namespace laba_kamyshov
                 foreach (KeyValuePair<string, Camp<Vehicle>> level in campStages)
                 {
                     streamWriter.WriteLine("Camp" + separator + level.Key);
-
-                    ITransport truck;
-                    for (int i = 0; (truck = level.Value.GetNext(i)) != null; i++)
+                    foreach (ITransport vehicle in level.Value)
                     {
-                        if (truck.GetType().Name == "TrackedVehicle")
+                        if (vehicle.GetType().Name == "TrackedVehicle")
                         {
                             streamWriter.Write("TrackedVehicle" + separator);
                         }
-                        else if (truck.GetType().Name == "Excavator")
+                        else if (vehicle.GetType().Name == "Excavator")
                         {
                             streamWriter.Write("Excavator" + separator);
                         }
-                        streamWriter.WriteLine(truck);
+                        streamWriter.WriteLine(vehicle);
                     }
                 }
             }
