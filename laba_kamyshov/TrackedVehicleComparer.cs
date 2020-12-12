@@ -6,21 +6,21 @@ namespace laba_kamyshov
     {
         public int Compare(Vehicle x, Vehicle y)
         {
-            if (x is TrackedVehicle && y is TrackedVehicle)
-            {
-                return ComparerTrackedVehicle((TrackedVehicle)x, (TrackedVehicle)y);
-            }
             if (x is Excavator && y is Excavator)
             {
                 return ComparerExcavator((Excavator)x, (Excavator)y);
+            }
+            if (x is Excavator && y is TrackedVehicle)
+            {
+                return -1;
             }
             if (x is TrackedVehicle && y is Excavator)
             {
                 return -1;
             }
-            if (x is Excavator && y is TrackedVehicle)
+            if (x is TrackedVehicle && y is TrackedVehicle)
             {
-                return -1;
+                return ComparerTrackedVehicle((TrackedVehicle)x, (TrackedVehicle)y);
             }
             return 0;
         }
@@ -44,6 +44,7 @@ namespace laba_kamyshov
         private int ComparerExcavator(Excavator x, Excavator y)
         {
             int res = ComparerTrackedVehicle(x, y);
+
             if (res != 0)
             {
                 return res;
