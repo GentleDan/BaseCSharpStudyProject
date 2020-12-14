@@ -112,7 +112,12 @@ namespace laba_kamyshov
         public bool MoveNext()
         {
             currentIndex++;
-            return (currentIndex < places.Count);
+            if(currentIndex >= places.Count)
+            {
+                Reset();
+                return false;
+            }
+            return true;
         }
 
         public void Reset()
